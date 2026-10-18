@@ -1,0 +1,43 @@
+# Construit le site statique à chaque push sur main et le publie en Release GitHub :
+#   https://github.com/<owner>/<repo>/releases/latest/download/witcher-companion.tar.gz
+# Le Raspberry Pi (dépôt huitcoeur, scripts/deploy-witcher.sh) télécharge cette archive
+# et Caddy la sert telle quelle : aucun conteneur, aucun accès entrant au Pi.
+name: Release du site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Archive dist/
+        run: tar -czf witcher-companion.tar.gz -C dist .
+
+      - name: Publie la Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="build-${GITHUB_SHA::7}"
+          gh release create "$tag" witcher-companion.tar.gz \
+            --target "$GITHUB_SHA" --title "$tag" --latest \
+            --notes "Build automatique de ${GITHUB_SHA::7}"
