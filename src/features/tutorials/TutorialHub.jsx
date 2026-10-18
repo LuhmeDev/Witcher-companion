@@ -4,9 +4,9 @@ import Icon from '../../ui/Icon.jsx';
 import SectionTitle from '../../ui/SectionTitle.jsx';
 import MasteryGuide from './MasteryGuide.jsx';
 import GuideArticle from './GuideArticle.jsx';
-import { ECONOMY_GUIDE, WITCHER_GEAR_GUIDE } from '../../data/guides.js';
+import { ALCHEMY_GUIDE, ECONOMY_GUIDE, WITCHER_GEAR_GUIDE } from '../../data/guides.js';
 
-const ARTICLES = { economy: ECONOMY_GUIDE, 'witcher-gear': WITCHER_GEAR_GUIDE };
+const ARTICLES = { economy: ECONOMY_GUIDE, 'witcher-gear': WITCHER_GEAR_GUIDE, alchemy: ALCHEMY_GUIDE };
 
 const GUIDES = [
   {
@@ -26,6 +26,12 @@ const GUIDES = [
     title: 'Schémas de sorceleur',
     text: 'Chasses au trésor et progression des écoles du Loup, Chat, Ours, Griffon, Vipère et Manticore.',
     icon: 'sword',
+  },
+  {
+    id: 'alchemy',
+    title: 'Alchimie',
+    text: 'Potions, décoctions, huiles et bombes : formules, toxicité, améliorations et mutagènes.',
+    icon: 'rune',
   },
 ];
 
@@ -51,9 +57,9 @@ export default function TutorialHub() {
   return (
     <section>
       <SectionTitle kicker="Tutoriels" title="Guides pas à pas">
-        Les mécaniques d'artisanat expliquées simplement, chapitre par chapitre. Ta progression est sauvegardée.
+        Les mécaniques d'artisanat et d'alchimie expliquées simplement, chapitre par chapitre. Ta progression est sauvegardée.
       </SectionTitle>
-      <ul className="grid gap-4 md:grid-cols-3">
+      <ul className="grid gap-4 md:grid-cols-2">
         {GUIDES.map((g) => (
           <li key={g.id}>
             <button

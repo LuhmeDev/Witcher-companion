@@ -178,3 +178,86 @@ export const WITCHER_GEAR_GUIDE = {
     },
   ],
 };
+
+export const ALCHEMY_GUIDE = {
+  id: 'alchemy',
+  kicker: 'Guide · Alchimie',
+  title: 'L\'alchimie du sorceleur',
+  intro:
+    'Potions, décoctions, huiles et bombes : l\'alchimie fait la différence contre les monstres. Une fois une formule apprise, l\'objet se fabrique sans artisan et se recharge en méditant.',
+  sections: [
+    {
+      id: 'bases',
+      title: 'Les bases',
+      icon: 'book',
+      bullets: [
+        'Il faut d\'abord une formule : achète-la chez les herboristes ou trouve-la en explorant. Elle s\'apprend en la lisant.',
+        'Tu fabriques depuis le menu Alchimie, n\'importe où, sans artisan ni frais : il suffit d\'avoir les ingrédients.',
+        'Chaque potion, bombe ou huile fabriquée une fois se recharge gratuitement en méditant, à condition d\'avoir un alcool fort dans l\'inventaire (alcohest ou spiritueux nain). Une seule bouteille recharge tout.',
+        'Les ingrédients viennent des plantes (cueillette, herboristes) et des monstres (dépouilles après un combat).',
+      ],
+    },
+    {
+      id: 'categories',
+      title: 'Les familles de préparations',
+      icon: 'rune',
+      table: {
+        head: ['Famille', 'À quoi ça sert', 'Exemples'],
+        rows: [
+          ['Potions', 'Effets courts : soin, vision nocturne, endurance, dégâts', 'Hirondelle, Tonnerre, Chat, Pleine lune, Miel blanc'],
+          ['Décoctions', 'Bonus passifs de longue durée, faites avec un mutagène de monstre', 'Décoctions de goule, de griffon, d\'ekimmara'],
+          ['Huiles de lame', 'Plus de dégâts contre une famille de monstres', 'Huile contre les nécrophages, les spectres, les draconides'],
+          ['Bombes', 'Contrôle et dégâts de zone', 'Mitraille, Étoile dansante, Samum, Bombe de diméritium'],
+          ['Substances alchimiques', 'Ingrédients intermédiaires pour les formules avancées', 'Albédo, Rebis, Nigredo, Vermillon'],
+        ],
+      },
+    },
+    {
+      id: 'toxicite',
+      title: 'Gérer la toxicité',
+      icon: 'skull',
+      bullets: [
+        'Chaque potion et décoction ajoute de la toxicité. Au-delà du seuil, Geralt perd de la vitalité.',
+        'Les décoctions sont très toxiques : en garder une ou deux actives laisse peu de marge pour les potions.',
+        'Le Miel blanc remet la toxicité à zéro et annule les effets de potion actifs. Garde-le pour te remettre d\'une erreur ou préparer un combat de boss.',
+        'La compétence Tolérance acquise de l\'arbre Alchimie augmente le seuil de toxicité à chaque formule apprise.',
+      ],
+    },
+    {
+      id: 'paliers',
+      title: 'Améliorer ses formules',
+      icon: 'anvil',
+      bullets: [
+        'La plupart des préparations existent en trois versions : normale, améliorée et supérieure (et parfois une quatrième dans Blood and Wine).',
+        'Chaque version améliorée demande la formule correspondante et la version précédente de la préparation, plus des ingrédients plus rares.',
+        'Les versions supérieures demandent souvent un alcool plus fort (spiritueux nain, alcohest) et des substances alchimiques.',
+        'Une préparation améliorée a plus de charges et des effets plus forts : la fabriquer une fois suffit, la méditation la recharge.',
+      ],
+    },
+    {
+      id: 'mutagenes',
+      title: 'Les mutagènes',
+      icon: 'gem',
+      bullets: [
+        'Les mutagènes tombent sur les monstres puissants et servent aussi à fabriquer les décoctions.',
+        'Placé dans un emplacement de mutagène, un mutagène rouge augmente la puissance d\'attaque, un vert la vitalité, un bleu l\'intensité des Signes.',
+        'Entoure-le de compétences de la même couleur pour multiplier son bonus.',
+        'Les mutagènes mineurs se combinent en mutagènes plus puissants dans le menu Alchimie.',
+      ],
+    },
+    {
+      id: 'conseils',
+      title: 'Conseils de sorceleur',
+      icon: 'star',
+      callout: {
+        title: 'À retenir',
+        items: [
+          'Garde toujours au moins une bouteille d\'alcohest ou de spiritueux nain : sans elle, la méditation ne recharge rien.',
+          'Avant un contrat, lis le bestiaire : il indique les huiles, bombes et Signes efficaces contre le monstre.',
+          'Fabrique tôt Hirondelle (soin), Chat (vision nocturne) et une huile adaptée : elles servent tout le jeu.',
+          'Depuis le patch 4.0, les plantes se ramassent d\'une seule interaction, sans fenêtre de butin : la cueillette va beaucoup plus vite.',
+        ],
+      },
+    },
+  ],
+};

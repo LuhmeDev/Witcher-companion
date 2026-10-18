@@ -34,7 +34,7 @@ src/
 │   ├── components.js            # composants : prix, rareté, recettes, démontage, sources
 │   ├── gear.js                  # épées de sorceleur (4 écoles × 3 paliers) et leurs recettes
 │   ├── crafters.js              # forgerons et armuriers : région, niveau, quêtes
-│   ├── guides.js                # guides Économie et Schémas de sorceleur (tableaux calculés)
+│   ├── guides.js                # guides Économie, Schémas de sorceleur et Alchimie
 │   └── mastery.js               # chapitres du tutoriel, paliers d'équipement, quiz
 ├── ui/                          # Icon (SVG maison), RarityBadge, Price, SectionTitle
 ├── components/NavBar.jsx
@@ -48,7 +48,7 @@ src/
     ├── tutorials/               # C. Guides
     │   ├── TutorialHub.jsx
     │   ├── MasteryGuide.jsx     #    parcours en 6 chapitres + quiz
-    │   └── GuideArticle.jsx     #    Économie, Schémas de sorceleur
+    │   └── GuideArticle.jsx     #    Économie, Schémas de sorceleur, Alchimie
     └── crafters/CrafterDirectory.jsx  # D. Répertoire filtrable des artisans
 ```
 
