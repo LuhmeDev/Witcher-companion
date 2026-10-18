@@ -34,6 +34,7 @@ src/
 │   ├── components.js            # composants : prix, rareté, recettes, démontage, sources
 │   ├── gear.js                  # épées de sorceleur (4 écoles × 3 paliers) et leurs recettes
 │   ├── crafters.js              # forgerons et armuriers : région, niveau, quêtes
+│   ├── bestiary.js              # monstres d'élite et leurs points faibles
 │   ├── guides.js                # guides Économie, Schémas de sorceleur et Alchimie
 │   └── mastery.js               # chapitres du tutoriel, paliers d'équipement, quiz
 ├── ui/                          # Icon (SVG maison), RarityBadge, Price, SectionTitle
@@ -49,7 +50,8 @@ src/
     │   ├── TutorialHub.jsx
     │   ├── MasteryGuide.jsx     #    parcours en 6 chapitres + quiz
     │   └── GuideArticle.jsx     #    Économie, Schémas de sorceleur, Alchimie
-    └── crafters/CrafterDirectory.jsx  # D. Répertoire filtrable des artisans
+    ├── crafters/CrafterDirectory.jsx  # D. Répertoire filtrable des artisans
+    └── bestiary/Bestiary.jsx    # E. Bestiaire des monstres d'élite
 ```
 
 ### Clés LocalStorage (préfixe `w3craft:`)

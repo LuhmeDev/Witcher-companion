@@ -5,6 +5,7 @@ export const TABS = [
   { id: 'calculator', label: 'Calculateur', icon: 'anvil' },
   { id: 'guides', label: 'Guides', icon: 'book' },
   { id: 'crafters', label: 'Artisans', icon: 'map' },
+  { id: 'bestiary', label: 'Bestiaire', icon: 'skull' },
 ];
 
 /** En-tête sur desktop, barre d'onglets fixée en bas sur mobile. */
@@ -44,7 +45,7 @@ export default function NavBar({ active, onChange }) {
       </header>
 
       <nav
-        className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-4 border-t border-gold-dark/50 bg-leather-950/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
+        className="fixed inset-x-0 bottom-0 z-30 grid grid-cols-5 border-t border-gold-dark/50 bg-leather-950/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
         aria-label="Sections"
       >
         {TABS.map((t) => (
@@ -52,7 +53,7 @@ export default function NavBar({ active, onChange }) {
             key={t.id}
             onClick={() => onChange(t.id)}
             aria-current={active === t.id ? 'page' : undefined}
-            className={`flex flex-col items-center gap-0.5 py-2 text-[11px] font-display tracking-wide ${
+            className={`flex flex-col items-center gap-0.5 py-2 text-[10px] font-display ${
               active === t.id ? 'text-gold-light' : 'text-parchment-dim'
             }`}
           >

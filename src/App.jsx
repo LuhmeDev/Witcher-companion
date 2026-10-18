@@ -4,6 +4,7 @@ import ComponentBank from './features/database/ComponentBank.jsx';
 import TutorialHub from './features/tutorials/TutorialHub.jsx';
 import Calculator from './features/calculator/Calculator.jsx';
 import CrafterDirectory from './features/crafters/CrafterDirectory.jsx';
+import Bestiary from './features/bestiary/Bestiary.jsx';
 import { useLocalStorage } from './hooks/useLocalStorage.js';
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         {tab === 'guides' && <TutorialHub />}
         {tab === 'calculator' && <Calculator />}
         {tab === 'crafters' && <CrafterDirectory />}
+        {tab === 'bestiary' && <Bestiary />}
       </main>
       <footer className="mx-auto mt-12 max-w-6xl px-4 text-center text-xs text-parchment-dim/70">
         Guide de fan non officiel. The Witcher® est une marque de CD PROJEKT S.A. Prix de base indicatifs : ils varient selon le
