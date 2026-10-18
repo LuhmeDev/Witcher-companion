@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0c0907;
+  --color-leather-950: #120d09;
+  --color-leather-900: #1a130d;
+  --color-leather-800: #241a12;
+  --color-leather-700: #33251a;
+  --color-leather-600: #4a3626;
+  --color-gold: #c9a35c;
+  --color-gold-light: #e6cc8f;
+  --color-gold-dark: #8a6a32;
+  --color-parchment: #e8dcc0;
+  --color-parchment-dim: #b5a787;
+  --color-blood: #8b1a1a;
+  --color-blood-light: #b8402f;
+
+  --color-rarity-common: #d4ccba;
+  --color-rarity-master: #6b9de0;
+  --color-rarity-magic: #e0bf4f;
+  --color-rarity-relic: #e08a34;
+
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-body: "EB Garamond", Georgia, serif;
+}
+
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    @apply bg-leather-950 text-parchment font-body antialiased;
+    font-size: 17px;
+    background-image:
+      radial-gradient(ellipse at top, rgb(74 54 38 / 0.35), transparent 60%),
+      radial-gradient(ellipse at bottom, rgb(139 26 26 / 0.12), transparent 55%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 { @apply font-display tracking-wide; }
+  ::selection { background: rgb(201 163 92 / 0.35); }
+  :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+}
+
+@layer components {
+  /* Panneau "cuir" façon interface du jeu : bord doré fin + coins ornés */
+  .panel {
+    @apply relative rounded-md border border-gold-dark/40 bg-leather-900/90 shadow-lg shadow-black/40;
+    background-image: linear-gradient(180deg, rgb(255 255 255 / 0.03), transparent 40%);
+  }
+  .panel-ornate::before,
+  .panel-ornate::after {
+    content: "";
+    @apply pointer-events-none absolute h-3 w-3 border-gold;
+  }
+  .panel-ornate::before { @apply left-1 top-1 border-l border-t; }
+  .panel-ornate::after { @apply bottom-1 right-1 border-b border-r; }
+
+  .parchment {
+    @apply rounded-md text-leather-900;
+    background: linear-gradient(135deg, #efe4c8 0%, #e2d2ab 55%, #d8c597 100%);
+    box-shadow: inset 0 0 40px rgb(120 90 40 / 0.35), 0 8px 20px rgb(0 0 0 / 0.45);
+  }
+
+  .divider {
+    @apply my-4 h-px w-full;
+    background: linear-gradient(90deg, transparent, var(--color-gold-dark), transparent);
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm transition-colors;
+    @apply border-gold-dark/40 bg-leather-800/80 text-parchment-dim hover:border-gold hover:text-gold-light;
+  }
+  .chip-active { @apply border-gold bg-gold/15 text-gold-light; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded border px-4 py-2 font-display text-sm tracking-wider transition-colors;
+    @apply border-gold-dark bg-leather-800 text-gold-light hover:bg-leather-700 hover:border-gold disabled:opacity-40;
+  }
+  .btn-blood { @apply border-blood-light/70 bg-blood/60 text-parchment hover:bg-blood; }
+
+  .field {
+    @apply w-full rounded border border-gold-dark/50 bg-ink/70 px-3 py-2 text-parchment placeholder:text-parchment-dim/60;
+    @apply focus:border-gold focus:outline-none;
+  }
+
+  .scrollbar-thin { scrollbar-width: thin; scrollbar-color: var(--color-gold-dark) transparent; }
+}
