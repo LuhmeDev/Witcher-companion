@@ -38,6 +38,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           tag="build-${GITHUB_SHA::7}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag déjà publiée, rien à faire"; exit 0
+          fi
           gh release create "$tag" witcher-companion.tar.gz \
             --target "$GITHUB_SHA" --title "$tag" --latest \
             --notes "Build automatique de ${GITHUB_SHA::7}"
